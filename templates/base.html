@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="tr">
+<head>
+	<title>{% block title %} Sofistech {% endblock %}</title>
+	{% block dil %}{% endblock %}	
+	
+	<!-- Metalar -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">	
+		
+	{% block metalar %}
+		<meta name="description" content="Sofistech">
+		<meta name="keywords" content="Sofistech">
+	{% endblock %}	
+	<meta name="author" content="Sofistech">
+	{% block icon %}
+	<link rel="shortcut icon" href="#" />
+	{% endblock %}
+	<link rel="stylesheet" href="{% static 'css/all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/stil.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default.min.css' %}">	
+	<style>
+		.bd-placeholder-img {
+		  font-size: 1.125rem;
+		  text-anchor: middle;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+  
+		@media (min-width: 768px) {
+		  .bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		  }
+		}
+	  </style>
+	
+	{% block sharethis %}{% endblock %}
+</head>
+<!-- body başlangıcı -->
+<body>
+	{% include 'navbar.html' %}
+	
+	{% if messages %}
+	{% for message in messages %}
+		<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+		</button>
+    {{ message }}
+  </div>
+{% endfor %}
+	
+	{%endif %}
+	
+	{% block body %}
+	
+	{% endblock %}
+  	
+	
+	
+	<script src="{% static 'js/jquery9.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap-4.3.min.js' %}"></script>	
+	<script src="{% static 'js/highlight.min.js' %}"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	{% block javascript%}{% endblock %}
+</body>
+</html>
