@@ -44,6 +44,7 @@ class Setting(models.Model):
     adresse = models.CharField(max_length=75)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
+    features = models.BooleanField("Özellikler kısmının gözükmesini istiyorsanız tıklayınız:", default=False)
 
     def __str__(self):
         return self.title
@@ -69,9 +70,15 @@ class AboutLogo(models.Model):
 
 
 class Mission(models.Model):
+    MISSION_FONTS = (
+        ("ri-brush-4-line", "mission"),
+        ("ri-movie-2-line", "film şeridi"),
+        ("ri-calendar-check-line", "takvim"),
+    )
     title = models.CharField("Vizyon başlığı", max_length=30)
     content = models.CharField("içerik", max_length=150)
-    about_image = models.ImageField("resim")
+    font = models.CharField(max_length=50, choices=MISSION_FONTS)
+    image = models.ImageField("resim")
     
 
     def __str__(self):
@@ -79,17 +86,32 @@ class Mission(models.Model):
 
 
 class Partner(models.Model):
-    title = models.CharField("İş ortağının adı:", max_length=50, unique=True)
-    content = RichTextField("Ortak hakkında bilgi")
+    title = models.CharField("İş ortağının adı:", max_length=50)
     image = models.ImageField()
-    slug = models.SlugField(editable = False)
+
 
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Partner, self).save(*args, **kwargs)
+class Feature(models.Model):
+
+    FEATURE_FONTS = (
+        ("ri-gps-line", "gps"),
+        ("ri-body-scan-line", "body"),
+        ("ri-sun-line", "güneş"),
+        ("ri-store-line", "dükkan"),
+    )
+
+    font_title = models.CharField("Font Başlık", max_length=50)
+    font = models.CharField(max_length=50, choices=FEATURE_FONTS)
+    title = models.CharField("Başlık:", max_length=50)
+    sub_content = models.CharField("üst içerik", max_length=150)
+    content = RichTextField("İçerik")
+    image = models.ImageField()
+    ranking = models.SmallIntegerField("sıralama", unique=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Service(models.Model):

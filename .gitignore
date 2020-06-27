@@ -106,3 +106,4 @@ myvenv2
 db.sqlite3
 staticfiles/
 .vscode/
+media/
