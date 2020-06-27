@@ -4,7 +4,7 @@ from decouple import config, Csv
 
 INSTALLED_APPS += (
 	# Proje içi appler
-	
+	'home',
 	#3. Parti Paketler
 	'crispy_forms',
 	'ckeditor',

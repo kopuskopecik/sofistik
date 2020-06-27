@@ -3,3 +3,4 @@ python-decouple
 django-debug-toolbar
 django-crispy-forms
 django-ckeditor
+Pillow

@@ -6,12 +6,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title></title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <title>{{setting.title}}</title>
+  <meta content="{{setting.description}}" name="descriptison">
+  <meta content="{{setting.keywords}}" name="keywords">
+  <meta name="yandex-verification" content="5e817db5d8305b2e" />
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{{setting.icon.url}}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -35,6 +36,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url("{{setting.image.url}}") top center;
+      background-size: cover;
+      position: relative;
+      padding: 0;
+}
+  </style>
 </head>
 
 <body>
@@ -43,27 +54,19 @@
   <header id="header" class="fixed-top ">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Dewi</a></h1>
+      <h1 class="logo"><a href="index.html">Sofistech</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li class="active"><a href="index.html">Anasayfa</a></li>
+          <li class="drop-down"><a href="">Kurumsal</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
+              <li><a href="#about">Hakkımızda</a></li>
+              <li class="drop-down"><a href="#">İş Ortaklarımız</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li>
               <li><a href="#">Drop Down 2</a></li>
@@ -71,12 +74,27 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="drop-down"><a href="#services">Hizmetlerimiz</a>
+            <ul>
+             {% for service in services %} 
+              <li><a href="#about">{{service.title}}</a></li>
+             {% endfor %}
+            </ul>
+          </li>
+          <li class="drop-down"><a href="#portfolio">Çözümlerimiz</a>
+            <ul>
+             {% for solution in solutions %} 
+              <li><a href="#about">{{solution.title}}</a></li>
+             {% endfor %}
+            </ul>
+          </li>          
+          <li><a href="#team">Referanslar</a></li>
+          <li><a href="#contact">İletişim</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <a href="#about" class="get-started-btn scrollto">{{setting.get_started}}</a>
 
     </div>
   </header><!-- End Header -->
@@ -84,11 +102,11 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-      <h1>Plan. Launch. Grow.</h1>
-      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+      <h1>{{setting.header}}</h1>
+      <h2>{{setting.content}}</h2>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+        <a href="{{setting.youtube_url}}" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -102,38 +120,16 @@
         <div class="row justify-content-end">
           <div class="col-lg-11">
             <div class="row justify-content-end">
-
+             {% for logo in about.aboutlogo_set.all %}
               <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box">
-                  <i class="icofont-simple-smile"></i>
-                  <span data-toggle="counter-up">65</span>
-                  <p>Happy Clients</p>
+                  <i class="{{logo.font}}"></i>
+                  <span data-toggle="counter-up">{{logo.number}}</span>
+                  <p>{{logo.title}}</p>
                 </div>
               </div>
-
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div class="count-box">
-                  <i class="icofont-document-folder"></i>
-                  <span data-toggle="counter-up">85</span>
-                  <p>Projects</p>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div class="count-box">
-                  <i class="icofont-clock-time"></i>
-                  <span data-toggle="counter-up">12</span>
-                  <p>Years of experience</p>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div class="count-box">
-                  <i class="icofont-award"></i>
-                  <span data-toggle="counter-up">15</span>
-                  <p>Awards</p>
-                </div>
-              </div>
+             {% endfor %}
+             
 
             </div>
           </div>
@@ -142,26 +138,25 @@
         <div class="row">
 
           <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <img src="{{about.about_image.url}}" class="img-fluid" alt="Hakkımızda">
+            <a href="{{about.about_youtube_url}}" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
           </div>
 
           <div class="col-lg-6 pt-3 pt-lg-0 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>{{about.title}}</h3>
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              {{about.sub_content}}
             </p>
+            <!-- ======= About Checkbox Section ======= 
             <ul>
               <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
               <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
               <li><i class="bx bx-check-double"></i> Voluptate repellendus pariatur reprehenderit corporis sint.</li>
               <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
             </ul>
+            -->
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+              {{about.content|safe}}
             </p>
           </div>
 
@@ -395,48 +390,15 @@
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
+         {% for service in services %} 
           <div class="col-md-6">
             <div class="icon-box">
-              <i class="icofont-computer"></i>
-              <h4><a href="#">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <i class="{{service.font}}"></i>
+              <h4><a href="#">{{service.title}}</a></h4>
+              <p>{{service.content|safe}}</p>
             </div>
           </div>
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-chart-bar-graph"></i>
-              <h4><a href="#">Dolor Sitema</a></h4>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-image"></i>
-              <h4><a href="#">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-settings"></i>
-              <h4><a href="#">Nemo Enim</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-earth"></i>
-              <h4><a href="#">Magni Dolore</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div>
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-tasks-alt"></i>
-              <h4><a href="#">Eiusmod Tempor</a></h4>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div>
+         {% endfor %}          
         </div>
 
       </div>
@@ -694,8 +656,8 @@
       <div class="container" data-aos="fade-up"">
 
     <div class=" section-title">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
+        <h2>İletişim</h2>
+        <p>Bize Ulaşın</p>
       </div>
 
       <div class="row">
@@ -706,22 +668,23 @@
             <div class="col-md-12">
               <div class="info-box">
                 <i class="bx bx-map"></i>
-                <h3>Our Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h3>Adres</h3>
+                <p>{{contact.addresse}}</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box mt-4">
                 <i class="bx bx-envelope"></i>
                 <h3>Email Us</h3>
-                <p>info@example.com<br>contact@example.com</p>
+                
+                <p>{% for member in contact.member.all %} {{member.email}}<br> {% endfor %}</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box mt-4">
                 <i class="bx bx-phone-call"></i>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                <p>{% for member in contact.member.all %} {{member.number}}<br> {% endfor %}</p>
               </div>
             </div>
           </div>
@@ -732,28 +695,28 @@
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="form-row">
               <div class="col-md-5 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="İsminiz" data-rule="minlen:4" data-msg="Lütfen en az 4 karakter giriniz." />
                 <div class="validate"></div>
               </div>
               <div class="col-md-5 form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="Mailiniz" data-rule="email" data-msg="Lütfen uygun bir mail adresi giriniz." />
                 <div class="validate"></div>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Konu" data-rule="minlen:4" data-msg="Lütfen en az 8 karakterden oluşan bir başlık seçiniz." />
               <div class="validate"></div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Lütfen mesajınızı bizimle paylaşınız." placeholder="Mesajınız"></textarea>
               <div class="validate"></div>
             </div>
             <div class="mb-3">
-              <div class="loading">Loading</div>
+              <div class="loading">Yükleniyor</div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">Mesajınız gönderilmiştir. Teşekkür ederiz.</div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit">Gönder</button></div>
           </form>
         </div>
 
