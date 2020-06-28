@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 from ckeditor.fields import RichTextField
 
@@ -45,6 +46,8 @@ class Setting(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=20)
     features = models.BooleanField("Özellikler kısmının gözükmesini istiyorsanız tıklayınız:", default=False)
+    testimonials = models.BooleanField("Müşteri yorumlarının sergilenmesi için tıklayınız.", default=False)
+    teams = models.BooleanField("Sofistech ekibinin segilenmesi için tıklayınız.", default=False)
 
     def __str__(self):
         return self.title
@@ -128,6 +131,19 @@ class Service(models.Model):
         self.slug = slugify(self.title)
         super(Service, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('home:detail', kwargs={'slug':self.slug})
+
+class Testimonial(models.Model):
+    image = models.ImageField("Müşteri resmi")
+    title = models.CharField("Müşteri adı", max_length=50)
+    sub_title = models.CharField("Müşteri Ünvanı", max_length=50)
+    content = models.CharField("Müşteri Yorumu", max_length=150)
+
+    def __str__(self):
+        return self.title
+
+
 
 class Solution(models.Model):
     title = models.CharField("Çözüm adı:", max_length=50, unique=True)
@@ -144,26 +160,39 @@ class Solution(models.Model):
         super(Solution, self).save(*args, **kwargs)
 
 
+class CompanyType(models.Model):
+    title = models.CharField("Şirket tipi", max_length=10)
+    
+    def __str__(self):
+        return self.title
+
 class Reference(models.Model):
-    title = models.CharField("Referansın adı:", max_length=50, unique=True)
-    content = RichTextField("Referans hakkında bilgi")
-    image = models.ImageField()
-    slug = models.SlugField()
+    title = models.CharField("Referansın adı:", max_length=50)
+    content = models.CharField("Referansın kısa açıklaması:", max_length=75)
+    image = models.ImageField("Referans resmi")
+    company_type = models.ForeignKey('CompanyType', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.brand_name)
-        super(Reference, self).save(*args, **kwargs)
+
 
 
 
 
 class Member(models.Model):
     name = models.CharField("isim", max_length=50)
+    job = models.CharField("ünvan", max_length=50)
     email = models.EmailField()
     number = models.CharField("Telefon Numarası", max_length=30)
+    image = models.ImageField("Profil resmi", blank=True, null=True)
+    twitter_url = models.URLField(blank = True)
+    facebook_url = models.URLField(blank = True)
+    instagram_url = models.URLField(blank = True)
+    linkedin_url = models.URLField(blank = True)
+
+
+
 
     def __str__(self):
         return self.name
