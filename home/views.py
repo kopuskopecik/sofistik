@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 from .models import (Setting, Service, Contact, About, Mission, 
 Partner, Feature, Testimonial, CompanyType, Reference, Member)
+from .forms import ContactForm
+
+
 # Create your views here.
 def home(request):
     setting  = Setting.objects.first()
@@ -13,6 +17,15 @@ def home(request):
     partners = Partner.objects.all()
     company_types = CompanyType.objects.all()
     references = Reference.objects.all()
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Başarı bir şekilde mesajınız tarafımıza iletilmiştir. En kısa sürede sizinle iletişime geçilecektir.')
+            return redirect("/")
+    else:
+        form = ContactForm()
     
 
     context = {
@@ -24,7 +37,8 @@ def home(request):
         'missions': missions,
         'partners': partners,
         'company_types': company_types,
-        'references': references, 
+        'references': references,
+        'form': form, 
 		
 	}
     if setting.features:

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import (Setting, Partner, Service, Reference, Member, Contact, About, 
-AboutLogo, Mission, Feature, Testimonial, Reference, CompanyType) 
+AboutLogo, Mission, Feature, Testimonial, Reference, CompanyType, ContactInfo) 
 
 # Register your models here.
 class SettingAdmin(admin.ModelAdmin):
@@ -33,6 +33,7 @@ admin.site.register(Feature)
 admin.site.register(Testimonial)
 admin.site.register(Reference)
 admin.site.register(CompanyType)
+admin.site.register(ContactInfo)
 
 
 

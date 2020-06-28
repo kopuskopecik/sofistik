@@ -14,7 +14,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-CKEDITOR_jQUERY_URL = os.path.join(STATIC_URL, "js/jquery9.min.js")
+CKEDITOR_jQUERY_URL = os.path.join(STATIC_URL, "assets/vendor/jquery")
 CKEDITOR_CONFIGS = {
 	'default': {
 		'toolbar': 'full',

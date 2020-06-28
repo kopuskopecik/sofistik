@@ -185,3 +185,13 @@ class Contact(models.Model):
     addresse = models.CharField("adres", max_length=150)
 
 
+class ContactInfo(models.Model):
+    name = models.CharField("İsminiz:", max_length=40)
+    email = models.EmailField("Email:")
+    topic = models.CharField("Konu:", max_length = 150)
+    content = models.TextField("Mesajınız:")
+
+    def __str__(self):
+        return self.name
+
+
