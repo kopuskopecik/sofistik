@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import (Setting, Partner, Service, Solution, Reference, Member, Contact, About, 
+from .models import (Setting, Partner, Service, Reference, Member, Contact, About, 
 AboutLogo, Mission, Feature, Testimonial, Reference, CompanyType) 
 
 # Register your models here.
@@ -14,10 +14,6 @@ class ServiceAdmin(admin.ModelAdmin):
 	list_display = ['title', 'font','image', 'content',]
 
 
-class SolutionAdmin(admin.ModelAdmin):
-		
-	list_display = ['title', 'font','image', 'content',]
-
 class ContactAdmin(admin.ModelAdmin):
 		
 	list_display = ["addresse"]
@@ -27,7 +23,6 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Setting, SettingAdmin)
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(Solution, SolutionAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Member)
 admin.site.register(About)

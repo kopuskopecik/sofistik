@@ -34,7 +34,7 @@ class Setting(models.Model):
     youtube_url = models.URLField("anasayfadaki URL adresi")
     header = models.CharField("ana sayfadaki resim üstündeki başlık", max_length=150, blank=True)
     content = models.CharField("ana sayfadaki resim üsütündeki içerik", max_length=150, blank=True)
-    get_startted = models.CharField("Nabvardaki get_started", default = "Get Started", max_length=50)
+    get_startted = models.CharField("Navbardaki get_started", default = "Get Started", max_length=50)
     about = RichTextField()
     facebook_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
@@ -123,6 +123,9 @@ class Service(models.Model):
     content = RichTextField("Servis hakkında bilgi")
     image = models.ImageField()
     slug = models.SlugField(editable = False)
+    service_or_not = models.BooleanField("Hizmet ise tıklanacak değilse Tıklanmayacak", default = False)
+    description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
+    keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)    
 
     def __str__(self):
         return self.title
@@ -134,6 +137,8 @@ class Service(models.Model):
     def get_absolute_url(self):
         return reverse('home:detail', kwargs={'slug':self.slug})
 
+
+
 class Testimonial(models.Model):
     image = models.ImageField("Müşteri resmi")
     title = models.CharField("Müşteri adı", max_length=50)
@@ -143,21 +148,6 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.title
 
-
-
-class Solution(models.Model):
-    title = models.CharField("Çözüm adı:", max_length=50, unique=True)
-    font = models.CharField(max_length=50, choices=FONTS)
-    content = RichTextField("Çözüm hakkında bilgi")
-    image = models.ImageField()
-    slug = models.SlugField(editable=False)
-
-    def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Solution, self).save(*args, **kwargs)
 
 
 class CompanyType(models.Model):
@@ -176,10 +166,6 @@ class Reference(models.Model):
         return self.title
 
 
-
-
-
-
 class Member(models.Model):
     name = models.CharField("isim", max_length=50)
     job = models.CharField("ünvan", max_length=50)
@@ -190,9 +176,6 @@ class Member(models.Model):
     facebook_url = models.URLField(blank = True)
     instagram_url = models.URLField(blank = True)
     linkedin_url = models.URLField(blank = True)
-
-
-
 
     def __str__(self):
         return self.name
