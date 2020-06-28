@@ -63,4 +63,4 @@ def detail(request, slug):
 		
 	}
 
-    return render(request, 'inner-page.html', context)
+    return render(request, 'detail.html', context)
