@@ -5,6 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 !(function($) {
+  $(".pictures").find("img").attr("class", "img-fluid");
   "use strict";
 
   // Preloader
@@ -14,6 +15,7 @@
         $(this).remove();
       });
     }
+    
   });
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
@@ -185,7 +187,7 @@
     // Initiate venobox (lightbox feature used in portofilo)
     $(document).ready(function() {
       $('.venobox').venobox();
-      $("img").attr("class", "img-fluid");
+      
     });
   });
 
@@ -209,4 +211,10 @@
   });
 
 })(jQuery);
+
+
+
+  
+
+
 
