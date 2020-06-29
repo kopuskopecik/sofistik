@@ -185,6 +185,7 @@
     // Initiate venobox (lightbox feature used in portofilo)
     $(document).ready(function() {
       $('.venobox').venobox();
+      $("img").attr("class", "img-fluid");
     });
   });
 
@@ -208,3 +209,4 @@
   });
 
 })(jQuery);
+
