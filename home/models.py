@@ -59,6 +59,11 @@ class About(models.Model):
     about_image = models.ImageField("Hakkımızda kısmında çıkacak olan resim")
     about_youtube_url = models.URLField("Hakkımızda ile ilgili olan youtube URL'i ")
 
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Hakkımızda'
+        verbose_name_plural = 'Hakkımızdakiler'
+
     def __str__(self):
         return self.title
 
@@ -67,6 +72,11 @@ class AboutLogo(models.Model):
     font = models.CharField(max_length=50, choices=FONTS)
     about = models.ForeignKey("About", on_delete =models.CASCADE)
     number = models.IntegerField(default = 0)
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Hakkımızdada Bulunan Font'
+        verbose_name_plural = 'Hakkımızdada Bulunan Fontlar'
 
     def __str__(self):
         return self.title
@@ -82,6 +92,12 @@ class Mission(models.Model):
     content = models.CharField("içerik", max_length=150)
     font = models.CharField(max_length=50, choices=MISSION_FONTS)
     image = models.ImageField("resim")
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Vizyon'
+        verbose_name_plural = 'Vizyonlar'
+
     
 
     def __str__(self):
@@ -91,6 +107,11 @@ class Mission(models.Model):
 class Partner(models.Model):
     title = models.CharField("İş ortağının adı:", max_length=50)
     image = models.ImageField()
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'İş Ortağı'
+        verbose_name_plural = 'İş Ortakları'
 
 
     def __str__(self):
@@ -113,6 +134,11 @@ class Feature(models.Model):
     image = models.ImageField()
     ranking = models.SmallIntegerField("sıralama", unique=True)
 
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Ekstra Özellikler'
+        verbose_name_plural = 'Özellikler'
+
     def __str__(self):
         return self.title
 
@@ -128,6 +154,11 @@ class Service(models.Model):
     description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
     keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)    
     active = models.BooleanField("Sitede gösterilsin mi", default = False)
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Hizmet ve Çözüm'
+        verbose_name_plural = 'Hizmet ve Çözümlerimiz'
 
     def __str__(self):
         return self.title
@@ -147,6 +178,11 @@ class Testimonial(models.Model):
     sub_title = models.CharField("Müşteri Ünvanı", max_length=50)
     content = models.CharField("Müşteri Yorumu", max_length=150)
 
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Müşteri Görüşü'
+        verbose_name_plural = 'Müşteri Görüşleri'
+
     def __str__(self):
         return self.title
 
@@ -154,6 +190,11 @@ class Testimonial(models.Model):
 
 class CompanyType(models.Model):
     title = models.CharField("Şirket tipi", max_length=10)
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Şirket Tipi'
+        verbose_name_plural = 'Şirket Tipleri'
     
     def __str__(self):
         return self.title
@@ -163,6 +204,11 @@ class Reference(models.Model):
     content = models.CharField("Referansın kısa açıklaması:", max_length=75)
     image = models.ImageField("Referans resmi")
     company_type = models.ForeignKey('CompanyType', on_delete=models.CASCADE)
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Referans'
+        verbose_name_plural = 'Referanslar'
 
     def __str__(self):
         return self.title
@@ -179,6 +225,11 @@ class Member(models.Model):
     instagram_url = models.URLField(blank = True)
     linkedin_url = models.URLField(blank = True)
 
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Sofistech Üye'
+        verbose_name_plural = 'Sofistech Üyeleri'
+
     def __str__(self):
         return self.name
 
@@ -186,12 +237,24 @@ class Contact(models.Model):
     member = models.ManyToManyField('Member')
     addresse = models.CharField("adres", max_length=150)
 
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'İletişim'
+        verbose_name_plural = 'İletişim Bilgileri'
+
+    
+
 
 class ContactInfo(models.Model):
     name = models.CharField("İsminiz:", max_length=40)
     email = models.EmailField("Email:")
     topic = models.CharField("Konu:", max_length = 150)
     content = models.TextField("Mesajınız:")
+
+    class Meta:
+        #ordering = ('sıralama_sayısı', )
+        verbose_name = 'Gelen Mesaj'
+        verbose_name_plural = 'Gelen Mesajlar'
 
     def __str__(self):
         return self.name
