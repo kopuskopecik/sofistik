@@ -120,12 +120,14 @@ class Feature(models.Model):
 class Service(models.Model):
     title = models.CharField("Hizmetin adı:", max_length=50, unique=True)
     font = models.CharField(max_length=50, choices=FONTS)
+    home_content = models.CharField(max_length=250, default = "Kısa Açıklama")
     content = RichTextField("Servis hakkında bilgi")
     image = models.ImageField()
     slug = models.SlugField(editable = False)
     service_or_not = models.BooleanField("Hizmet ise tıklanacak değilse Tıklanmayacak", default = False)
     description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
     keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)    
+    active = models.BooleanField("Sitede gösterilsin mi", default = False)
 
     def __str__(self):
         return self.title

@@ -274,7 +274,7 @@
             <div class="icon-box">
               <i class="{{service.font}}"></i>
               <h4><a href="{{service.get_absolute_url}}">{{service.title}}</a></h4>
-              <p>{{service.content|safe}}</p>
+              <p>{{service.home_content}}</p>
             </div>
           </div>
          {% endfor %}          
@@ -322,7 +322,7 @@
             <div class="icon-box">
               <i class="{{solution.font}}"></i>
               <h4><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></h4>
-              <p>{{solution.content|safe}}</p>
+              <p>{{solution.home_content}}</p>
             </div>
           </div>
          {% endfor %}          
