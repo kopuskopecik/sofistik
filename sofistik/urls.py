@@ -33,7 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml/', sitemap, {'sitemaps':sitemaps}),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type ="text/plain")),
-    path('google86098620ccf7e11d.html', TemplateView.as_view(template_name="google86098620ccf7e11d.html")),
+    path('googleb2c85495126fb742.html', TemplateView.as_view(template_name="googleb2c85495126fb742.html")),
     path('', include('home.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
