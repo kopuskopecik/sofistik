@@ -56,9 +56,9 @@ def home(request):
 
 def detail(request, slug):
     setting  = Setting.objects.first()
-    service = get_object_or_404(Service, slug = slug)
-    services = Service.objects.filter(service_or_not=True)
-    solutions = Service.objects.filter(service_or_not=False)
+    service = get_object_or_404(Service, slug = slug, active = True)
+    services = Service.objects.filter(service_or_not=True, active = True)
+    solutions = Service.objects.filter(service_or_not=False, active = True)
     #contact = Contact.objects.first()
     #about = About.objects.first()
     #missions = Mission.objects.all()

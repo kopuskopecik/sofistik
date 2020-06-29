@@ -11,7 +11,8 @@ class SettingAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
 		
-	list_display = ['title', 'font','image', 'content',]
+	list_display = ['title', 'font','image', 'home_content', 'active']
+	list_editable = ['font', 'image','home_content', 'active']
 
 
 class ContactAdmin(admin.ModelAdmin):
