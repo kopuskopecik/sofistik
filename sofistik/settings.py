@@ -3,6 +3,7 @@ from decouple import config, Csv
 
 
 INSTALLED_APPS += (
+	'django.contrib.sitemaps',
 	# Proje içi appler
 	'home',
 	#3. Parti Paketler

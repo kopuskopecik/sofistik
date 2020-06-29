@@ -173,7 +173,7 @@
          {% for mission in missions %} 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="{{mission.image.url}}" class="card-img-top" alt="...">
+              <img src="{{mission.image.url}}" class="card-img-top" alt="{{mission.title}}">
               <div class="card-icon">
                 <i class="{{mission.font}}"></i>
               </div>
@@ -369,7 +369,7 @@
          {% for member in members %}
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="pic"><img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="Ekibimiz"></div>
               <div class="member-info">
                 <h4>{{member.name}}</h4>
                 <span>{{member.job}}</span>

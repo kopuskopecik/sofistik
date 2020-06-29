@@ -17,9 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
+
+from home.sitemaps import ServiceSitemap
+
+
+sitemaps = {
+	'services' : ServiceSitemap,
+
+}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sitemap.xml/', sitemap, {'sitemaps':sitemaps}),
+    path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type ="text/plain")),
+    path('google86098620ccf7e11d.html', TemplateView.as_view(template_name="google86098620ccf7e11d.html")),
     path('', include('home.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
