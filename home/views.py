@@ -11,6 +11,7 @@ def home(request):
     setting  = Setting.objects.first()
     services = Service.objects.filter(service_or_not=True, active = True)
     solutions = Service.objects.filter(service_or_not=False, active = True)
+    softwares = Service.objects.filter(service_or_not=False, active = True, software = True)
     contact = Contact.objects.first()
     about = About.objects.first()
     missions = Mission.objects.all()
@@ -32,6 +33,7 @@ def home(request):
         'setting': setting,
         'services': services,
         'solutions': solutions,
+        'softwares': softwares,
         'contact': contact,
         'about': about,
         'missions': missions,
@@ -59,6 +61,7 @@ def detail(request, slug):
     service = get_object_or_404(Service, slug = slug, active = True)
     services = Service.objects.filter(service_or_not=True, active = True)
     solutions = Service.objects.filter(service_or_not=False, active = True)
+    softwares = Service.objects.filter(service_or_not=False, active = True, software = True)
     #contact = Contact.objects.first()
     #about = About.objects.first()
     #missions = Mission.objects.all()
@@ -69,6 +72,7 @@ def detail(request, slug):
         'setting': setting,
         'services': services,
         'solutions': solutions,
+        'softwares': softwares,
         #'contact': contact,
         #'about': about,
         #'missions': missions,

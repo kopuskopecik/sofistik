@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{{setting.title}}</title>
-  <meta content="{{setting.description}}" name="descriptison">
+  <meta content="{{setting.description}}" name="description">
   <meta content="{{setting.keywords}}" name="keywords">
   <meta name="yandex-verification" content="5e817db5d8305b2e" />
   
@@ -98,7 +98,17 @@
               <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
              {% endfor %}
             </ul>
-          </li>          
+          </li>
+          
+          <li class="drop-down"><a href="#softwares">Yazılım</a>
+            <ul>
+             {% for solution in softwares %} 
+              <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
+             {% endfor %}
+            </ul>
+          </li>   
+
+          
           <li><a href="#portfolio">Referanslar</a></li>
           <li><a href="#contact">İletişim</a></li>
 
@@ -329,7 +339,32 @@
         </div>
 
       </div>
-    </section><!-- End Solution Section -->   
+    </section><!-- End Solution Section -->
+    
+
+        <!-- ======= Solution Section ======= -->
+        <section id="softwares" class="services section-bg">
+          <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+              <h2>Yazılım</h2>
+              <p>Yazılım Çözümlerimize göz atın</p>
+            </div>
+    
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+             {% for solution in softwares %} 
+              <div class="col-md-6">
+                <div class="icon-box">
+                  <i class="{{solution.font}}"></i>
+                  <h4><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></h4>
+                  <p>{{solution.home_content}}</p>
+                </div>
+              </div>
+             {% endfor %}          
+            </div>
+    
+          </div>
+        </section><!-- End Solution Section -->   
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">

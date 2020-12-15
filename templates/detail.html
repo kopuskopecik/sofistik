@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{{setting.title}}</title>
-  <meta content="{{service.description}}" name="descriptison">
+  <meta content="{{service.description}}" name="description">
   <meta content="{{service.keywords}}" name="keywords">
   <meta name="yandex-verification" content="5e817db5d8305b2e" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -86,7 +86,16 @@
               <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
              {% endfor %}
             </ul>
-          </li>          
+          </li>    
+          
+          <li class="drop-down"><a href="{% url 'home:home' %}#softwares">Yazılım</a>
+            <ul>
+             {% for solution in softwares %} 
+              <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
+             {% endfor %}
+            </ul>
+          </li>   
+          
           <li><a href="{% url 'home:home' %}#portfolio">Referanslar</a></li>
           <li><a href="{% url 'home:home' %}#contact">İletişim</a></li>
 
