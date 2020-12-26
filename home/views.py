@@ -9,9 +9,9 @@ from .forms import ContactForm
 # Create your views here.
 def home(request):
     setting  = Setting.objects.first()
-    services = Service.objects.filter(service_or_not=True, active = True)
-    solutions = Service.objects.filter(service_or_not=False, active = True)
-    softwares = Service.objects.filter(service_or_not=False, active = True, software = True)
+    services = Service.objects.filter(service_or_not=True, active = True, software = False)
+    solutions = Service.objects.filter(service_or_not=False, active = True, software = False)
+    softwares = Service.objects.filter(active = True, software = True)
     contact = Contact.objects.first()
     about = About.objects.first()
     missions = Mission.objects.all()
