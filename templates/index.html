@@ -283,7 +283,7 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
          {% for service in services %} 
-          <div class="col-md-6 mb-2">
+          <div class="col-md-6 mb-3">
             <div class="icon-box h-100">
               <i class="{{service.font}}"></i>
               <h4><a href="{{service.get_absolute_url}}">{{service.title}}</a></h4>
@@ -331,8 +331,8 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
          {% for solution in solutions %} 
-          <div class="col-md-6">
-            <div class="icon-box">
+          <div class="col-md-6 mb-3">
+            <div class="icon-box h-100">
               <i class="{{solution.font}}"></i>
               <h4><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></h4>
               <p>{{solution.home_content|truncatechars:150}}</p>
@@ -356,8 +356,8 @@
     
             <div class="row" data-aos="fade-up" data-aos-delay="200">
              {% for solution in softwares %} 
-              <div class="col-md-6">
-                <div class="icon-box">
+              <div class="col-md-6 mb-3">
+                <div class="icon-box h-100">
                   <i class="{{solution.font}}"></i>
                   <h4><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></h4>
                   <p>{{solution.home_content|truncatechars:150}}</p>
