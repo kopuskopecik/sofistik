@@ -283,8 +283,8 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
          {% for service in services %} 
-          <div class="col-md-6">
-            <div class="icon-box">
+          <div class="col-md-6 mb-2">
+            <div class="icon-box h-100">
               <i class="{{service.font}}"></i>
               <h4><a href="{{service.get_absolute_url}}">{{service.title}}</a></h4>
               <p>{{service.home_content|truncatechars:100}}</p>
