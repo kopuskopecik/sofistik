@@ -1,237 +1,302 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{{setting.title}}</title>
+    <meta content="{{service.description}}" name="description" />
+    <meta content="{{service.keywords}}" name="keywords" />
+    <meta name="yandex-verification" content="5e817db5d8305b2e" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171154551-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <title>{{setting.title}}</title>
-  <meta content="{{service.description}}" name="description">
-  <meta content="{{service.keywords}}" name="keywords">
-  <meta name="yandex-verification" content="5e817db5d8305b2e" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171154551-1"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      gtag("config", "UA-171154551-1");
+    </script>
 
-  gtag('config', 'UA-171154551-1');
-  </script>
+    <!-- Favicons -->
+    <link href="{{setting.icon.url}}" rel="icon" />
+    <link
+      href="{% static 'assets/img/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
 
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Favicons -->
-  <link href="{{setting.icon.url}}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Vendor CSS Files -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/icofont/icofont.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/venobox/venobox.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
+    <!-- =======================================================
   * Template Name: Dewi - v2.1.0
   * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages">
+      <div
+        class="container-fluid d-flex align-items-center justify-content-between"
+      >
+        <h1 class="logo">
+          <img src="{% static 'assets/img/sofistech.jpeg' %}" />
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
+          <a href="{% url 'home:home' %}">{{setting.title}}</a>
+        </h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
 
-      <h1 class="logo">
-        <img src="{% static 'assets/img/sofistech.jpeg' %}">
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="{% url 'home:home' %}">Anasayfa</a></li>
+            <li class="drop-down">
+              <a href="{% url 'home:home' %}#about">Kurumsal</a>
+              <ul>
+                <li><a href="{% url 'home:home' %}#about">Hakkımızda</a></li>
+                <li class="drop-down">
+                  <a href="{% url 'home:home' %}#clients">İş Ortaklarımız</a>
+                  <ul>
+                    {% for partner in partners %}
+                    <li>
+                      <a href="{% url 'home:home' %}#clients"
+                        >{{partner.title}}</a
+                      >
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="drop-down">
+              <a href="{% url 'home:home' %}#services">Hizmetlerimiz</a>
+              <ul>
+                {% for service in services %}
+                <li>
+                  <a href="{{service.get_absolute_url}}">{{service.title}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="drop-down">
+              <a href="{% url 'home:home' %}#solutions">Çözümlerimiz</a>
+              <ul>
+                {% for solution in solutions %}
+                <li>
+                  <a href="{{solution.get_absolute_url}}">{{solution.title}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
 
-        <a href="{% url 'home:home' %}">{{setting.title}}</a>
-        
-      </h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+            <li class="drop-down">
+              <a href="{% url 'home:home' %}#softwares">Yazılımlarımız</a>
+              <ul>
+                {% for solution in softwares %}
+                <li>
+                  <a href="{{solution.get_absolute_url}}">{{solution.title}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="{% url 'home:home' %}">Anasayfa</a></li>
-          <li class="drop-down"><a href="{% url 'home:home' %}#about">Kurumsal</a>
-            <ul>
-              <li><a href="{% url 'home:home' %}#about">Hakkımızda</a></li>
-              <li class="drop-down"><a href="{% url 'home:home' %}#clients">İş Ortaklarımız</a>
-                <ul>
-                 {% for partner in partners %} 
-                  <li><a href="{% url 'home:home' %}#clients">{{partner.title}}</a></li>
-                 {% endfor %}
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="drop-down"><a href="{% url 'home:home' %}#services">Hizmetlerimiz</a>
-            <ul>
-             {% for service in services %} 
-              <li><a href="{{service.get_absolute_url}}">{{service.title}}</a></li>
-             {% endfor %}
-            </ul>
-          </li>
-          <li class="drop-down"><a href="{% url 'home:home' %}#solutions">Çözümlerimiz</a>
-            <ul>
-             {% for solution in solutions %} 
-              <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
-             {% endfor %}
-            </ul>
-          </li>    
-          
-          <li class="drop-down"><a href="{% url 'home:home' %}#softwares">Yazılımlarımız</a>
-            <ul>
-             {% for solution in softwares %} 
-              <li><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
-             {% endfor %}
-            </ul>
-          </li>   
-          
-          <li><a href="{% url 'home:home' %}#portfolio">Referanslar</a></li>
-          <li><a href="{% url 'home:home' %}#contact">İletişim</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-
-
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          
-          <ol>
-            <li><a href="{% url 'home:home' %}">Anasayfa</a></li>
-            <li>{{service.title}}</li>
-          </ol>
-        </div>
-
+            <li><a href="{% url 'home:home' %}#portfolio">Referanslar</a></li>
+            <li><a href="{% url 'home:home' %}#contact">İletişim</a></li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
       </div>
-    </section><!-- End Breadcrumbs -->
+    </header>
+    <!-- End Header -->
 
-    <section class="inner-page">
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 pictures ">
-                <h1 class = "text-center">{{service.title}}</h1>
-                <img src="{{service.image.url}}" class="img-fluid" alt="{{service.title}}">
-                <p>{{service.content|safe}}</p>
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+              <li><a href="{% url 'home:home' %}">Anasayfa</a></li>
+              <li>{{service.title}}</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <section class="inner-page">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 pictures">
+              <h1 class="text-center">{{service.title}}</h1>
+              <img
+                src="{{service.image.url}}"
+                class="img-fluid"
+                alt="{{service.title}}"
+              />
+              <p>{{service.content|safe}}</p>
             </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
+    <!-- End #main -->
 
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>{{setting.title}}</h3>
-              <p>
-                {{setting.adresse}}<br>
-                <strong>Tel:</strong> {{setting.phone}}<br>
-                <strong>Email:</strong> {{setting.email}}<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="{{setting.twitter_url}}" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="{{setting.facebook_url}}" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="{{setting.instagram_url}}" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="{{setting.skype_url}}" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="{{setting.linkedin_url}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>{{setting.title}}</h3>
+                <p>
+                  {{setting.adresse}}<br />
+                  <strong>Tel:</strong> {{setting.phone}}<br />
+                  <strong>Email:</strong> {{setting.email}}<br />
+                </p>
+                <div class="social-links mt-3">
+                  <a href="{{setting.twitter_url}}" class="twitter"
+                    ><i class="bx bxl-twitter"></i
+                  ></a>
+                  <a href="{{setting.facebook_url}}" class="facebook"
+                    ><i class="bx bxl-facebook"></i
+                  ></a>
+                  <a href="{{setting.instagram_url}}" class="instagram"
+                    ><i class="bx bxl-instagram"></i
+                  ></a>
+                  <a href="{{setting.skype_url}}" class="google-plus"
+                    ><i class="bx bxl-skype"></i
+                  ></a>
+                  <a href="{{setting.linkedin_url}}" class="linkedin"
+                    ><i class="bx bxl-linkedin"></i
+                  ></a>
+                </div>
               </div>
             </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Faydalı Linkler</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{% url 'home:home' %}">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{% url 'home:home' %}#about">Hakkımızda</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{% url 'home:home' %}#services">Hizmetlerimiz</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{% url 'home:home' %}#solutions">Çözümlerimiz</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Hizmetlerimiz</h4>
+              <ul>
+                {% for service in services %}
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{{service.get_absolute_url}}">{{service.title}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Çözümlerimiz</h4>
+              <ul>
+                {% for solution in solutions %}
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="{{solution.get_absolute_url}}">{{solution.title}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Faydalı Linkler</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}#about">Hakkımızda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}#services">Hizmetlerimiz</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}#solutions">Çözümlerimiz</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Hizmetlerimiz</h4>
-            <ul>
-             {% for service in services %} 
-              <li><i class="bx bx-chevron-right"></i> <a href="{{service.get_absolute_url}}">{{service.title}}</a></li>
-             {% endfor %}
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Çözümlerimiz</h4>
-            <ul>
-             {% for solution in solutions %} 
-              <li><i class="bx bx-chevron-right"></i> <a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
-             {% endfor %}
-            </ul>
-
-          </div>
-
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>{{setting.title}}</span></strong>. All Rights Reserved
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>{{setting.title}}</span></strong
+          >. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
+          Designed by <a href="https://www.sofistech.net/">Sofistech Business Solutions</a>
+        </div>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <div id="preloader"></div>
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+    <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-
-</body>
-
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
 </html>
