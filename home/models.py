@@ -151,7 +151,7 @@ class Service(models.Model):
     image = models.ImageField()
     slug = models.SlugField(editable = False)
     service_or_not = models.BooleanField("Hizmet ise tıklanacak değilse Tıklanmayacak", default = False)
-    software = models.BooleanField("Yazılım Hizmetleri için tıklanacak", default = False)
+    software = models.BooleanField("Seo Başlıkları için tıklanacak", default = False)
     description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
     keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)    
     active = models.BooleanField("Sitede gösterilsin mi", default = False)
