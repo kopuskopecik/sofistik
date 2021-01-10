@@ -6,6 +6,7 @@ INSTALLED_APPS += (
 	'django.contrib.sitemaps',
 	# Proje içi appler
 	'home',
+	'blog',
 	#3. Parti Paketler
 	'crispy_forms',
 	'ckeditor',

@@ -35,5 +35,7 @@ urlpatterns = [
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type ="text/plain")),
     path('googleb2c85495126fb742.html', TemplateView.as_view(template_name="googleb2c85495126fb742.html")),
     path('', include('home.urls')),
+    path('blog/', include('blog.urls')),
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
