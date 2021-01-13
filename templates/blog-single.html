@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+
+<link href="{% static 'assets/css/blog/style.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+{% include 'blog_navbar.html' %}
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home:home' %}">Home</a></li>
+          <li><a href="{% url 'blog:home' %}">Blog</a></li>
+          <li>{{blog.title}}</li>
+        </ol>
+        <h2>{{blog.title}}</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="{{blog.image.url}}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="#">{{blog.title}}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{blog.user}}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{blog.publishing_date}}</time></a></li>
+                  <!-- <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12 Comments</a></li> -->
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>{{blog.content|safe}}</p>
+              </div>
+
+              <div class="entry-footer clearfix">
+                <div class="float-left">
+                  <i class="icofont-folder"></i>
+                  <ul class="cats">
+                    <li><a href="#">{{blog.category.title}}</a></li>
+                  </ul>
+
+                  <i class="icofont-tags"></i>
+                  <ul class="tags">
+                    {% for tag in blog.tags.all %}
+                    <li><a href="#">{{tag.title}}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+                <div class="float-right share">
+                  <a href="#" title="Share on Twitter"><i class="icofont-twitter"></i></a>
+                  <a href="#" title="Share on Facebook"><i class="icofont-facebook"></i></a>
+                  <a href="#" title="Share on Instagram"><i class="icofont-instagram"></i></a>
+                </div>
+
+              </div>
+
+            </article><!-- End blog entry -->
+<!-- 
+            <div class="blog-author clearfix">
+              <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
+              <h4>{{blog.user}}</h4>
+              <div class="social-links">
+                <a href="https://twitters.com/#"><i class="icofont-twitter"></i></a>
+                <a href="https://facebook.com/#"><i class="icofont-facebook"></i></a>
+                <a href="https://instagram.com/#"><i class="icofont-instagram"></i></a>
+              </div>
+              <p>
+                Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
+              </p>
+            </div> -->
+            
+            <!-- End blog author bio -->
+
+          
+            
+            <!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Ara</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="icofont-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Kategoriler</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  {% for category in categories %}
+                  <li><a href="#">{{category.title}} <span>(25)</span></a></li>
+                  {% endfor %}
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">İlgili yazılar</h3>
+              <div class="sidebar-item recent-posts">
+                {% for blog in blog.blogs.all %}
+                <div class="post-item clearfix">
+                  <img src="{{blog.image.url}}" alt="">
+                  <h4><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h4>
+                  <time datetime="2020-01-01">{{blog.publishing_date}}</time>
+                </div>
+                {% endfor %}
+ 
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  {% for tag in blog.tags.all%}
+                  <li><a href="#">{{tag.title}}</a></li>
+                  {% endfor %}
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  {% endblock %}
+
+  {% block main_javascript %}
+  <script src="{% static 'assets/js/blog/main.js' %}"></script>
+  
+  {% endblock %}

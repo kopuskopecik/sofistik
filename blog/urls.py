@@ -5,5 +5,5 @@ from . import views
 app_name = 'blog'
 urlpatterns = [
     path('', views.blog, name='home'),
-    #path('<slug:slug>/', views.detail, name="detail"),
+    path('<slug:slug>/', views.detail, name="detail"),
 ]

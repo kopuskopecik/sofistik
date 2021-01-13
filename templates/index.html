@@ -233,29 +233,6 @@
     </section><!-- End Solution Section -->
     
 
-        <!-- ======= Solution Section ======= -->
-        <section id="softwares" class="services section-bg">
-          <div class="container" data-aos="fade-up">
-    
-            <div class="section-title">
-              <h2>SEO </h2>
-              <p>SEO Çözümlerimize göz atın</p>
-            </div>
-    
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
-             {% for solution in softwares %} 
-              <div class="col-md-6 mb-3">
-                <div class="icon-box h-100">
-                  <i class="{{solution.font}}"></i>
-                  <h4><a href="{{solution.get_absolute_url}}">{{solution.title}}</a></h4>
-                  <p>{{solution.home_content|truncatechars:150}}</p>
-                </div>
-              </div>
-             {% endfor %}          
-            </div>
-    
-          </div>
-        </section><!-- End Solution Section -->   
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -277,9 +254,9 @@
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row portfolio-container justify-content-center" data-aos="fade-up" data-aos-delay="200">
          {% for reference in references %} 
-          <div class="col-lg-4 col-md-6 portfolio-item {{reference.company_type.title}}">
+          <div class="col-lg-4 col-md-6 portfolio-item {{reference.company_type.title}} ">
             <img src="{{reference.image.url}}" class="img-fluid" alt="{{reference.title}}">
             <div class="portfolio-info">
               <h4>{{reference.title}}</h4>
