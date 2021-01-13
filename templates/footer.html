@@ -1,0 +1,70 @@
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>{{setting.title}}</h3>
+              <p>
+                {{setting.adresse}}<br>
+                <strong>Tel:</strong> {{setting.phone}}<br>
+                <strong>Email:</strong> {{setting.email}}<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="{{setting.twitter_url}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="{{setting.facebook_url}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="{{setting.instagram_url}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="{{setting.skype_url}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="{{setting.linkedin_url}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Faydalı Linkler</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">Hakkımızda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Hizmetlerimiz</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#solutions">Çözümlerimiz</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Hizmetlerimiz</h4>
+            <ul>
+             {% for service in services %} 
+              <li><i class="bx bx-chevron-right"></i> <a href="{{service.get_absolute_url}}">{{service.title}}</a></li>
+             {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Çözümlerimiz</h4>
+            <ul>
+             {% for solution in solutions %} 
+              <li><i class="bx bx-chevron-right"></i> <a href="{{solution.get_absolute_url}}">{{solution.title}}</a></li>
+             {% endfor %}
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>{{setting.title}}</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
+        Designed by <a href="https://www.sofistech.net/">Sofistech Business Solutions</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->

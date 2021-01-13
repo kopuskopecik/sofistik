@@ -1,0 +1,20 @@
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="{% url 'home:home' %}">Sofistech<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Blog</a></li>
+          <li><a href="{% url 'home:home' %}#about">Kurumsal</a></li>
+          <li><a href="{% url 'home:home' %}#services">Hizmetlerimiz</a></li>
+          <li><a href="{% url 'home:home' %}#portfolio">Çözümlerimiz</a></li>
+          <li><a href="{% url 'home:home' %}#portfolio">Referanslar</a></li>
+          <li><a href="{% url 'home:home' %}#contact">İletişim</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <a href="{% url 'home:home' %}" class="get-started-btn scrollto">Anasayfa</a>
+    </div>
+  </header><!-- End Header -->
