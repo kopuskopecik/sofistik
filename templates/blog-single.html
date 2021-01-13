@@ -64,13 +64,13 @@
                 <div class="float-left">
                   <i class="icofont-folder"></i>
                   <ul class="cats">
-                    <li><a href="#">{{blog.category.title}}</a></li>
+                    <li><a href="{{blog.category.get_absolute_url}}">{{blog.category.title}}</a></li>
                   </ul>
 
                   <i class="icofont-tags"></i>
                   <ul class="tags">
                     {% for tag in blog.tags.all %}
-                    <li><a href="#">{{tag.title}}</a></li>
+                    <li><a href="{{tag.get_absolute_url}}">{{tag.title}}</a></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -122,7 +122,7 @@
               <div class="sidebar-item categories">
                 <ul>
                   {% for category in categories %}
-                  <li><a href="#">{{category.title}} <span>(25)</span></a></li>
+                  <li><a href="{{category.get_absolute_url}}">{{category.title}} <span>(25)</span></a></li>
                   {% endfor %}
                 </ul>
               </div><!-- End sidebar categories-->
@@ -144,7 +144,7 @@
               <div class="sidebar-item tags">
                 <ul>
                   {% for tag in blog.tags.all%}
-                  <li><a href="#">{{tag.title}}</a></li>
+                  <li><a href="{{tag.get_absolute_url}}">{{tag.title}}</a></li>
                   {% endfor %}
                 </ul>
               </div><!-- End sidebar tags-->

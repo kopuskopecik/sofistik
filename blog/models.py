@@ -19,15 +19,32 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):        
+        return reverse('blog:category', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
+        
+
 class Tag(models.Model):
-    title = models.CharField("başlık", max_length=50)
+    title = models.CharField("başlık", max_length=50, unique = True)
+    slug = models.SlugField(editable = False)
+
     
     class Meta:
         verbose_name = 'Tag'
         verbose_name_plural = 'Tagler'
     
     def __str__(self):
-        return self.title                   
+        return self.title
+    
+    def get_absolute_url(self):        
+        return reverse('blog:tag', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Tag, self).save(*args, **kwargs)                   
 
 
 
