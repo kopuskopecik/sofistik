@@ -131,16 +131,7 @@
               </ul>
             </li>
 
-            <li class="drop-down">
-              <a href="{% url 'home:home' %}#softwares">SEO</a>
-              <ul>
-                {% for solution in softwares %}
-                <li>
-                  <a href="{{solution.get_absolute_url}}">{{solution.title}}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            </li>
+        
 
             <li><a href="{% url 'home:home' %}#portfolio">Referanslar</a></li>
             <li><a href="{% url 'home:home' %}#contact">İletişim</a></li>
