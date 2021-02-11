@@ -28,7 +28,7 @@ FONTS = (
 class Setting(models.Model):
     title = models.CharField("title", max_length=50)
     icon = models.ImageField("İcon", upload_to='setting/')
-    # logo = models.ImageField("logo", upload_to='setting/',default = "Sofistech")
+    logo = models.ImageField("logo", upload_to='setting/',default = "Sofistech")
     description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
     keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)   
     image = models.ImageField("Ana sayfadaki büyük resim", upload_to='setting/')
@@ -46,7 +46,7 @@ class Setting(models.Model):
     adresse = models.CharField(max_length=75)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
-    # whatsapp_phone = models.CharField(max_length=20,default="")
+    whatsapp_phone = models.CharField(max_length=20,default="")
     features = models.BooleanField("Özellikler kısmının gözükmesini istiyorsanız tıklayınız:", default=False)
     testimonials = models.BooleanField("Müşteri yorumlarının sergilenmesi için tıklayınız.", default=False)
     teams = models.BooleanField("Sofistech ekibinin segilenmesi için tıklayınız.", default=False)
