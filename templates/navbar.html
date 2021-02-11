@@ -5,7 +5,8 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <h1 class="logo">
-        <img src="{% static 'assets/img/sofistech.jpeg' %}">
+        <!-- <img src="{% static 'assets/img/sofistech.jpeg' %}"> -->
+        <img src="{{setting.logo.url}}">
         <a href="{% url 'home:home' %}">Sofistech</a>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->

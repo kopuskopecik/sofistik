@@ -76,7 +76,7 @@
 	{% endblock %}
   	
   {% include "footer.html" %}
-  <a  href="https://api.whatsapp.com/send?phone=9{{setting.whatsapp_phone}}" class="back-to-left"><i class="icofont-brand-whatsapp" ></i></a>
+  <a  href="https://api.whatsapp.com/send?phone={{setting.whatsapp_phone}}" class="back-to-left"><i class="icofont-brand-whatsapp" ></i></a>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 	  <!-- Vendor JS Files -->
 	  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>

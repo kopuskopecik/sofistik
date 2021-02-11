@@ -54,6 +54,36 @@ h1, h2, h3, h4, h5, h6 {
   background: #ff5e31;
   color: #fff;
 }
+/*--------------------------------------------------------------
+# Whatsapp button
+--------------------------------------------------------------*/
+.back-to-left {
+  position: fixed;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 5rem;
+  left: 1px;
+  bottom: 1px;
+  background: green;
+  color: #fff;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+.back-to-left i {
+  font-size: 3rem;
+  position: absolute;
+
+  top: 13px;
+  left: 13px;
+}
+
+.back-to-left:hover {
+  color: #fff;
+  background: #2ae149;
+  transition: 0.3s ease-in-out;
+}
 
 /*--------------------------------------------------------------
 # Preloader
