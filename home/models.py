@@ -28,7 +28,7 @@ FONTS = (
 class Setting(models.Model):
     title = models.CharField("title", max_length=50)
     icon = models.ImageField("İcon", upload_to='setting/')
-    logo = models.ImageField("logo", upload_to='setting/',default = "")
+    logo = models.ImageField("logo", upload_to='setting/',default = "Sofistech")
     description = models.CharField("Google'da çıkacak olan yazı", max_length=150)
     keywords = models.CharField("Google'da aramalarda çıkabilmek için gerekli anahtar kelimler", max_length=150)   
     image = models.ImageField("Ana sayfadaki büyük resim", upload_to='setting/')
